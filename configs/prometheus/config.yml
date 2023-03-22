@@ -236,9 +236,34 @@ scrape_configs:
           app: off-pro
           service: api
           env: org
-      - targets: ['https://robotoff.openfoodfacts.org/api/v1/health']
+      - targets: ['https://robotoff.openfoodfacts.org/api/v1/health/test_connect_mongodb']
         labels:
-          app: robotoff
+          app: 'robotoff:test_connect_mongodb'
+          service: api
+          env: org
+      - targets: ['https://robotoff.openfoodfacts.org/api/v1/health/test_connect_postgres']
+        labels:
+          app: 'robotoff:test_connect_postgres'
+          service: api
+          env: org
+      - targets: ['https://robotoff.openfoodfacts.org/api/v1/health/test_connect_influxdb']
+        labels:
+          app: 'robotoff:test_connect_influxdb'
+          service: api
+          env: org
+      - targets: ['https://robotoff.openfoodfacts.org/api/v1/health/test_connect_redis']
+        labels:
+          app: 'robotoff:test_connect_redis'
+          service: api
+          env: org
+      - targets: ['https://robotoff.openfoodfacts.org/api/v1/health/test_connect_robotoff_api']
+        labels:
+          app: 'robotoff:test_connect_robotoff_api'
+          service: api
+          env: org
+      - targets: ['https://robotoff.openfoodfacts.org/api/v1/health/test_connect_elasticsearch']
+        labels:
+          app: 'robotoff:test_connect_elasticsearch'
           service: api
           env: org
       - targets: ['https://grafana.openfoodfacts.org/api/health']
