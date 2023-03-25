@@ -26,10 +26,6 @@ receivers:
 
      *Description:* {{ .Annotations.description }}
 
-     *Details:*
-       {{ range .Labels.SortedPairs }}
-         {{ if or (eq .Name "app") (eq .Name "job") (eq .Name "service") }} 
-           • *{{ .Name }}:* `{{ .Value }}`
-         {{ end }}
-       {{ end }}
+     *Details:* {{ range .Labels.SortedPairs }}{{ if or (eq .Name "app") (eq .Name "job") (eq .Name "service") }} 
+       • *{{ .Name }}:* `{{ .Value }}`{{ end }}{{ end }}
      {{ end }}
