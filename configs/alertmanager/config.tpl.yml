@@ -26,9 +26,8 @@ receivers:
 
      *Description:* {{ .Annotations.description }}
 
-     {{ if eq .Status "firing" }}:
-       *Details:*
-         {{ range .Labels.SortedPairs }} • *{{ .Name }}:* `{{ .Value }}`
-         {{ end }}
+     {{ if eq .Status "firing" }} *Details:*
+       {{ range .Labels.SortedPairs }} • *{{ .Name }}:* `{{ .Value }}`
+       {{ end }}
      {{ end }}
      {{ end }}
